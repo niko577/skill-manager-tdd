@@ -23,4 +23,12 @@ describe('EmployeesService', () => {
             lastName: 'Doe',
         })).toBe('Employee created');
     });
+
+    it('error while add new employee', async () => {
+        expect(await service.create({
+            firstName: 'John',
+            // @ts-ignore
+            lastName: 5,
+        })).toBe('Error while creating employee');
+    });
 });
