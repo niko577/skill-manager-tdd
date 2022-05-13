@@ -8,15 +8,14 @@ import { EmployeesService } from './employees.service';
 export class EmployeesController {
     constructor(private readonly employeesService: EmployeesService) {}
 
-    @ApiProperty()
     @Post('create')
     create(@Body() createEmployeeDto: CreateEmployeeDto) {
         return this.employeesService.create(createEmployeeDto);
     }
 
-    @Get()
+    @Get('list')
     findAll() {
-        return '';
+        return this.employeesService.findAll();
     }
 
     @Get(':id')

@@ -52,7 +52,6 @@ describe('EmployeesService', () => {
             firstName: string;
             lastName: string;
         }[] = await service.findAll();
-        console.log(employees);
-        expect(employees.length).toBe(true);
+        expect(employees.length > 0).toBe(true);
     });
 });

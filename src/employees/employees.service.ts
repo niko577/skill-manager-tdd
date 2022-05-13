@@ -19,4 +19,8 @@ export class EmployeesService {
             return 'Error while creating employee';
         }
     }
+
+    findAll(): Promise<any> {
+        return this.prisma.employee.findMany();
+    }
 }
