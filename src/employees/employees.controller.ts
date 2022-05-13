@@ -1,10 +1,17 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { ApiProperty, ApiTags } from '@nestjs/swagger';
+import { CreateEmployeeDto } from 'src/dto/create.dto';
+import { EmployeesService } from './employees.service';
 
+@ApiTags('Employees')
 @Controller('employees')
 export class EmployeesController {
-    @Post()
-    create(@Body() createEmployeeDto) {
-        return '';
+    constructor(private readonly employeesService: EmployeesService) {}
+
+    @ApiProperty()
+    @Post('create')
+    create(@Body() createEmployeeDto: CreateEmployeeDto) {
+        return this.employeesService.create(createEmployeeDto);
     }
 
     @Get()
