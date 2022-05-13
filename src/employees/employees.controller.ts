@@ -1,32 +1,29 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { EmployeesService } from './employees.service';
 
 @Controller('employees')
 export class EmployeesController {
-    constructor(private readonly employeesService: EmployeesService) {}
-
     @Post()
     create(@Body() createEmployeeDto) {
-        return this.employeesService.create(createEmployeeDto);
+        return '';
     }
 
     @Get()
     findAll() {
-        return this.employeesService.findAll();
+        return '';
     }
 
     @Get(':id')
     findOne(@Param('id') id: string) {
-        return this.employeesService.findOne(+id);
+        return '';
     }
 
     @Patch(':id')
     update(@Param('id') id: string, @Body() updateEmployeeDto) {
-        return this.employeesService.update(+id, updateEmployeeDto);
+        return '';
     }
 
     @Delete(':id')
     remove(@Param('id') id: string) {
-        return this.employeesService.remove(+id);
+        return '';
     }
 }
