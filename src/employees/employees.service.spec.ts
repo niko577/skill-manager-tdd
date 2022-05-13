@@ -15,4 +15,11 @@ describe('EmployeesService', () => {
     it('should be defined', () => {
         expect(service).toBeDefined();
     });
+
+    it('can add new employee', () => {
+        expect(service.create({
+            firstName: 'John',
+            lastName: 'Doe',
+        })).toBe('Employee created');
+    });
 });
