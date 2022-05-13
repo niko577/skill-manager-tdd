@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Employee } from '@prisma/client';
 import { CreateEmployeeDto } from 'src/dto/create.dto';
 import { PrismaService } from '../prisma.service';
 
@@ -20,7 +21,7 @@ export class EmployeesService {
         }
     }
 
-    findAll(): Promise<any> {
-        return this.prisma.employee.findMany();
+    async findAll(): Promise<Employee[]> {
+        return await this.prisma.employee.findMany();
     }
 }
