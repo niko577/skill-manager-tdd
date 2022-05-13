@@ -45,4 +45,14 @@ describe('EmployeesService', () => {
       
         await expect(service.create(employee)).resolves.toEqual('Error while creating employee');
     });
+
+    it('should get all employees', async () => {
+        const employees: {
+            id: number;
+            firstName: string;
+            lastName: string;
+        }[] = await service.findAll();
+        console.log(employees);
+        expect(employees.length).toBe(true);
+    });
 });
